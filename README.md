@@ -1,0 +1,1 @@
+Create a GUI for pip that is an analogue to WingetUI but for PIP
