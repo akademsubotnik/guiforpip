@@ -12,7 +12,7 @@ class startupwindow(QtWidgets.QDialog):
     def __init__(self):
         super(startupwindow, self).__init__()
         # Load the UI file
-        uic.loadUi('pipuistartupwindow.ui', self)
+        uic.loadUi('GUI/pipuistartupwindow.ui', self)
 
         
         #Discover Packages
