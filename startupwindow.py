@@ -1,8 +1,9 @@
 import sys
 import subprocess
 from PyQt6 import QtWidgets, uic
-
-
+from discoverpackages import say_discoverpackages
+from softwareupdates import say_softwareupdates
+from installedpackages import say_installedpackages, print_pippackages
 
 
 
@@ -15,35 +16,17 @@ class startupwindow(QtWidgets.QDialog):
 
         
         #Discover Packages
-        #self.pushButton_discoverpackages.clicked.connect(self.say_discoverpackages)
-        self.pushButton_discoverpackages.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
+        self.pushButton_discoverpackages.clicked.connect(say_discoverpackages)
+        #self.pushButton_discoverpackages.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
         self.pushButton_back2.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
 
-
         #Installed Packages
-        #self.pushButton_installedpackages.clicked.connect(self.say_installedpackages)
-        self.pushButton_installedpackages.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(2))
+        self.pushButton_installedpackages.clicked.connect(say_installedpackages)
+        #self.pushButton_installedpackages.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(2))
         self.pushButton_back1.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
 
         #Software Updates
-        #self.pushButton_softwareupdates.clicked.connect(self.say_softwareupdates)
-        self.pushButton_softwareupdates.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(3))
+        self.pushButton_softwareupdates.clicked.connect(say_softwareupdates)
+        #self.pushButton_softwareupdates.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(3))
         self.pushButton_back3.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))        
 
-
-
-    def say_discoverpackages(self):
-        print("Discover Packages")
-
-    def say_softwareupdates(self):
-        print("Software Updates")
-
-    def say_installedpackages(self):
-        print("Installed Packages")
-        self.print_pippackages()
-
-    def print_pippackages(self):
-        # Run the pip list command
-        result = subprocess.run(['pip3', 'list'], capture_output=True, text=True, check=True)
-        # Print the output
-        print(result.stdout)
