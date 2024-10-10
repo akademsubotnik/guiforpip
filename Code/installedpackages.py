@@ -1,8 +1,8 @@
 import sys
 import subprocess
 from PyQt6 import QtWidgets, uic
-from discoverpackages import say_discoverpackages
-from softwareupdates import say_softwareupdates
+from Code.discoverpackages import say_discoverpackages
+from Code.softwareupdates import say_softwareupdates
 
 
 def say_installedpackages():
