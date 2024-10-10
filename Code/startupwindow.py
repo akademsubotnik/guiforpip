@@ -13,23 +13,28 @@ class startupwindow(QtWidgets.QDialog):
         # Load the UI file
         uic.loadUi('GUI/pipuistartupwindow.ui', self)
 
+        # Set up the different functionalities
+        self.setup_discover_packages()
+        self.setup_installed_packages()
+        self.setup_software_updates()
         
-        #Discover Packages
+    def setup_discover_packages(self):
+        # Discover Packages
         self.pushButton_discoverpackages.clicked.connect(discpackages.say_discoverpackages)
         self.pushButton_discoverpackages.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
         self.pushButton_back2.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
-
-        #If take me to pypi button is pressed open pypi website
+        # If "Take me to PyPI" button is pressed, open PyPI website
         self.pushButton_pypi.clicked.connect(discpackages.say_takemetopypi)
-        
 
-        #Installed Packages
+    def setup_installed_packages(self):
+        # Installed Packages
         self.pushButton_installedpackages.clicked.connect(instpackages.say_installedpackages)
         self.pushButton_installedpackages.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(2))
         self.pushButton_back1.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
 
-        #Software Updates
+    def setup_software_updates(self):
+        # Software Updates
         self.pushButton_softwareupdates.clicked.connect(swu.say_softwareupdates)
         self.pushButton_softwareupdates.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(3))
-        self.pushButton_back3.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))        
+        self.pushButton_back3.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
 
