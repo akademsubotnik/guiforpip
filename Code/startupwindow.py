@@ -2,7 +2,7 @@ import sys
 import subprocess
 from PyQt6 import QtWidgets, uic
 from Code.discoverpackages import DiscoverPackages #import Code.discoverpackages as discpackages #from Code.discoverpackages import say_discoverpackages, say_takemetopypi
-import Code.installedpackages as instpackages #from Code.installedpackages import say_installedpackages, print_pippackages
+from Code.installedpackages import InstalledPackages #import Code.installedpackages as instpackages #from Code.installedpackages import say_installedpackages, print_pippackages
 from Code.softwareupdates import SoftwareUpdates #import Code.softwareupdates as swu #from Code.softwareupdates import say_softwareupdates
 
 #Main/StartUp Window
@@ -16,17 +16,3 @@ class startupwindow(QtWidgets.QDialog):
         self.discover_packages = DiscoverPackages(self)
         self.installed_packages = InstalledPackages(self)
         self.software_updates = SoftwareUpdates(self)
-        
-
-
-
-class InstalledPackages:
-    def __init__(self, parent):
-        self.parent = parent
-        self.setup_ui()
-
-    def setup_ui(self):
-        # Installed Packages
-        self.parent.pushButton_installedpackages.clicked.connect(instpackages.say_installedpackages)
-        self.parent.pushButton_installedpackages.clicked.connect(lambda: self.parent.stackedWidget.setCurrentIndex(2))
-        self.parent.pushButton_back1.clicked.connect(lambda: self.parent.stackedWidget.setCurrentIndex(0))
