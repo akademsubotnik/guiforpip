@@ -1,7 +1,7 @@
 import sys
 import subprocess
 from PyQt6 import QtWidgets, uic
-from Code.discoverpackages import say_discoverpackages
+
 
 def say_installedpackages():
     print("Installed Packages")
