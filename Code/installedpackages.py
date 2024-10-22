@@ -19,12 +19,15 @@ class InstalledPackages:
 
 
     def print_pippackages(self):
-        print("ECHOOOOOO")
         try:
             # Run the pip list command
             result = subprocess.run(['pip3', 'list'], capture_output=True, text=True, check=True)
+            packages = result.stdout.splitlines()
             # Print the output
-            print(result.stdout)
+            index = 0
+            while index < len(packages):
+                self.parent.listWidget_installedpippackages.addItem(packages[index])
+                index = index + 1
         except subprocess.CalledProcessError as e:
             print(f"An error occurred while trying to list packages: {e}") 
 
