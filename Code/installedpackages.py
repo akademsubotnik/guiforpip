@@ -10,6 +10,12 @@ class InstalledPackages:
         # Installed Packages
         self.parent.pushButton_installedpackages.clicked.connect(self.print_pippackages)
         self.parent.pushButton_installedpackages.clicked.connect(lambda: self.parent.stackedWidget.setCurrentIndex(2))
+        self.parent.pushButton_back1.clicked.connect(self.back_button_click)
+
+
+    def back_button_click(self):
+        # Clear all items from the QListWidget
+        self.parent.listWidget_installedpippackages.clear()
         self.parent.pushButton_back1.clicked.connect(lambda: self.parent.stackedWidget.setCurrentIndex(0))
 
 
