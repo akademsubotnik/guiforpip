@@ -8,15 +8,16 @@ class InstalledPackages:
 
     def setup_ui(self):
         # Installed Packages
-        self.parent.pushButton_installedpackages.clicked.connect(self.print_pippackages)
         self.parent.pushButton_installedpackages.clicked.connect(lambda: self.parent.stackedWidget.setCurrentIndex(2))
+        self.parent.pushButton_installedpackages.clicked.connect(self.print_pippackages)
+        
+        self.parent.pushButton_back1.clicked.connect(lambda: self.parent.stackedWidget.setCurrentIndex(0))        
         self.parent.pushButton_back1.clicked.connect(self.back_button_click)
 
 
     def back_button_click(self):
         # Clear all items from the QListWidget
         self.parent.listWidget_installedpippackages.clear()
-        self.parent.pushButton_back1.clicked.connect(lambda: self.parent.stackedWidget.setCurrentIndex(0))
 
 
     def say_installedpackages(self):
@@ -36,11 +37,3 @@ class InstalledPackages:
                 index = index + 1
         except subprocess.CalledProcessError as e:
             print(f"An error occurred while trying to list packages: {e}") 
-
-"""
-(fstring)
-name = "Alice"
-greeting = f"Hello, {name}!"
-print(greeting)  # Output: Hello, Alice!
-
-"""
