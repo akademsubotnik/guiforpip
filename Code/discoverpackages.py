@@ -23,3 +23,6 @@ class DiscoverPackages:
         url = 'https://pypi.org'
         # Open the URL in the default web browser
         webbrowser.open(url)
+
+        #use the following to search for pacakges, where babel is the package being searched for
+        #wget -qO- https://pypi.org/simple/ | grep -i 'babel' | grep -oP '>(.*?)<' | sed 's/[><]//g'

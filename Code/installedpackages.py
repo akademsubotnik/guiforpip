@@ -7,10 +7,12 @@ class InstalledPackages:
         self.setup_ui()
 
     def setup_ui(self):
+        
         # Installed Packages
+        #Button - Installed Packages
         self.parent.pushButton_installedpackages.clicked.connect(lambda: self.parent.stackedWidget.setCurrentIndex(2))
         self.parent.pushButton_installedpackages.clicked.connect(self.print_pippackages)
-        
+        #Button - Back
         self.parent.pushButton_back1.clicked.connect(lambda: self.parent.stackedWidget.setCurrentIndex(0))        
         self.parent.pushButton_back1.clicked.connect(self.back_button_click)
 
